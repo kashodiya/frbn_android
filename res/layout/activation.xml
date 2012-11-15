@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/activation_warning"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="15dp"
+        android:text="@string/activation_email_prompt"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:text="kaushik.ashodiya@sf.frb.org"
+        android:hint="@string/activation_email_hint"
+        android:inputType="textEmailAddress" >
+        <requestFocus />
+    </EditText>
+<!--  
+    -->
+    <Button
+        android:id="@+id/btnReqActivation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editEmail"
+        android:layout_below="@+id/editEmail"
+        android:layout_marginTop="16dp"
+        android:onClick="onClickBtnReqActivation"
+        android:text="@string/activation_send_button_text" />
+
+</RelativeLayout>
