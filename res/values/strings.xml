@@ -49,6 +49,6 @@
     <string name="verify_activation_complete_btn_caption">Send token</string>
     <string name="verify_activation_btn_start_over_caption">Start over (change email)</string>
     <string name="title_activity_message_display">MessageDisplayActivity</string>
-    <string name="message_delete_text">Delete message</string>
+    <string name="message_delete_text">Delete all messages</string>
 
 </resources>

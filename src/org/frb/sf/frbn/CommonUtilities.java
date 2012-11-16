@@ -33,7 +33,7 @@ public final class CommonUtilities {
     /**
      * Google API project id registered to use GCM.
      */
-    static final String SENDER_ID = "808693503500";    
+    public static final String SENDER_ID = "808693503500";    
 
 
 

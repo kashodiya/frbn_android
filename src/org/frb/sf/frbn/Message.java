@@ -1,12 +1,16 @@
-package org.frb.sf.frbn.data;
+package org.frb.sf.frbn;
 
-public class Message {
-	private final String messageBody;
-	private final String title;
-	private final String category;
-	private final String district;
-	private final long timestamp;
-	
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Message implements Parcelable{
+	private String messageBody = "";
+	private String title = "";
+	private String category = "";
+	private String district = "";
+	private long timestamp = 0;
+	private int mData;
+
 	public long getTimestamp() {
 		return timestamp;
 	}
@@ -22,6 +26,21 @@ public class Message {
 	public String getDistrict() {
 		return district;
 	}
+	
+	private Message(Parcel in) {
+        mData = in.readInt(); 
+    }
+	
+    public static final Parcelable.Creator<Message> CREATOR = new Parcelable.Creator<Message>() {
+        public Message createFromParcel(Parcel in) {
+            return new Message(in);
+        }
+
+        public Message[] newArray(int size) {
+            return new Message[size];
+        }
+    };
+	
 	public Message(String messageBody, String title, String category,
 			String district, long timestamp) {
 		super();
@@ -46,6 +65,14 @@ public class Message {
 		buff.append(", timestamp = ");
 		buff.append(getTimestamp());
 		return buff.toString();
+	}
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO Auto-generated method stub
+		dest.writeInt(mData);
 	}
 
 }

@@ -1,8 +1,8 @@
-package org.frb.sf.frbn.data;
+package org.frb.sf.frbn;
 
-import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 final class DBHelper extends SQLiteOpenHelper {
 

@@ -1,4 +1,4 @@
-package org.frb.sf.frbn.data;
+package org.frb.sf.frbn;
 
 import java.util.ArrayList;
 
@@ -12,12 +12,12 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-final class MessageItemAdapter extends ArrayAdapter<MessageItem> {
+final class MessageItemAdapter extends ArrayAdapter<Message> {
 
   private final Activity activity;
 
   MessageItemAdapter(Activity activity) {
-    super(activity, R.layout.message_list_item, new ArrayList<MessageItem>());
+    super(activity, R.layout.message_list_item, new ArrayList<Message>());
     this.activity = activity;
   }
 
@@ -31,22 +31,22 @@ final class MessageItemAdapter extends ArrayAdapter<MessageItem> {
       layout = (LinearLayout) factory.inflate(R.layout.message_list_item, viewGroup, false);
     }
 
-    MessageItem item = getItem(position);
-    Message message = item.getResult();
+    Message message = getItem(position);
 
     String title;
-    String detail;
+    String category_district;
+    
     if (message != null) {
       title = message.getTitle();
-      detail = item.getDisplayAndDetails();      
+      category_district = "[" + message.getCategory() + "] - "+ message.getDistrict();
     } else {
       //Resources resources = getContext().getResources();
       title = "No messsages";
-      detail = "No message";
+      category_district = "No message";
     }
 
-    ((TextView) layout.findViewById(R.id.message_title)).setText(detail);    
-    ((TextView) layout.findViewById(R.id.message_detail)).setText(title);
+    ((TextView) layout.findViewById(R.id.message_title)).setText(title);    
+    ((TextView) layout.findViewById(R.id.message_category_district)).setText(category_district);
 
     return layout;
   }

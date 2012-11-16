@@ -1,4 +1,4 @@
-package org.frb.sf.frbn.data;
+package org.frb.sf.frbn;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -58,9 +58,9 @@ public final class MessageManager {
     }
   }
 
-  public List<MessageItem> buildMessageItems() {
+  public List<Message> buildMessageItems() {
     SQLiteOpenHelper helper = new DBHelper(activity);
-    List<MessageItem> items = new ArrayList<MessageItem>();
+    List<Message> items = new ArrayList<Message>();
     SQLiteDatabase db = null;
     Cursor cursor = null;
     try {
@@ -73,7 +73,8 @@ public final class MessageManager {
         String district = cursor.getString(3);
         long timestamp = cursor.getLong(4);
         Message message = new Message(messageBody, title, category, district, timestamp);
-        items.add(new MessageItem(message));
+        items.add(message);
+        //items.add(new MessageItem(message));
       }
     } finally {
       close(cursor, db);
@@ -81,7 +82,7 @@ public final class MessageManager {
     return items;
   }
 
-  public MessageItem buildHistoryItem(int number) {
+  public Message buildHistoryItem(int number) {
     SQLiteOpenHelper helper = new DBHelper(activity);
     SQLiteDatabase db = null;
     Cursor cursor = null;
@@ -95,7 +96,7 @@ public final class MessageManager {
       String district = cursor.getString(3);
       long timestamp = cursor.getLong(4);
       Message message = new Message(messageBody, title, category, district, timestamp);
-      return new MessageItem(message);
+      return message;
     } finally {
       close(cursor, db);
     }

@@ -16,12 +16,7 @@
 package org.frb.sf.frbn;
 
 import static org.frb.sf.frbn.CommonUtilities.DISPLAY_MESSAGE_ACTION;
-import static org.frb.sf.frbn.CommonUtilities.EXTRA_MESSAGE;
 import static org.frb.sf.frbn.CommonUtilities.SENDER_ID;
-import static org.frb.sf.frbn.CommonUtilities.SERVER_URL;
-
-import org.frb.sf.frbn.data.MessageListActivity;
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -34,7 +29,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.google.android.gcm.GCMRegistrar;
 
@@ -44,7 +38,7 @@ import com.google.android.gcm.GCMRegistrar;
 public class MainActivity extends Activity {
 
 	enum AppState {NOT_ACTIVATED, ACTIVATION_PENDING, ACTIVATED};
-	TextView mDisplay;
+	//TextView mDisplay;
     AsyncTask<Void, Void, Void> mRegisterTask;
     static final String TAG = "frbn";
 
@@ -69,15 +63,15 @@ public class MainActivity extends Activity {
     }
     
     public void doInit(){
-        checkNotNull(SERVER_URL, "SERVER_URL");
-        checkNotNull(SENDER_ID, "SENDER_ID");
+        //checkNotNull(SERVER_URL, "SERVER_URL");
+        //checkNotNull(SENDER_ID, "SENDER_ID");
         // Make sure the device has the proper dependencies.
         GCMRegistrar.checkDevice(this);
         // Make sure the manifest was properly set - comment out this line
         // while developing the app, then uncomment it when it's ready.
         GCMRegistrar.checkManifest(this);
         //setContentView(R.layout.main);
-        mDisplay = (TextView) findViewById(R.id.display);
+        //mDisplay = (TextView) findViewById(R.id.display);
         registerReceiver(mHandleMessageReceiver,
                 new IntentFilter(DISPLAY_MESSAGE_ACTION));
         final String regId = GCMRegistrar.getRegistrationId(this);
@@ -90,7 +84,7 @@ public class MainActivity extends Activity {
             // Device is already registered on GCM, check server.
             if (GCMRegistrar.isRegisteredOnServer(this)) {
                 // Skips registration.
-                mDisplay.append(getString(R.string.already_registered) + "\n");
+                //mDisplay.append(getString(R.string.already_registered) + "\n");
             } else {
                 // Try to register again, but not in the UI thread.
                 // It's also necessary to cancel the thread onDestroy(),
@@ -145,7 +139,7 @@ public class MainActivity extends Activity {
                 return true;
              */
             case R.id.options_clear:
-                mDisplay.setText(null);
+                //mDisplay.setText(null);
                 return true;
             case R.id.options_open_messageList:
                 Intent intent = new Intent(this, MessageListActivity.class);
@@ -171,19 +165,21 @@ public class MainActivity extends Activity {
         super.onDestroy();
     }
 
+    /*
     private void checkNotNull(Object reference, String name) {
         if (reference == null) {
             throw new NullPointerException(
                     getString(R.string.error_config, name));
         }
     }
+    */
 
     private final BroadcastReceiver mHandleMessageReceiver =
             new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String newMessage = intent.getExtras().getString(EXTRA_MESSAGE);
-            mDisplay.append(newMessage + "\n");
+            //String newMessage = intent.getExtras().getString(EXTRA_MESSAGE);
+            //mDisplay.append(newMessage + "\n");
         }
     };
 

@@ -28,7 +28,8 @@ public class LauncherActivity extends Activity {
     	} else if(AppState.valueOf(appStateStr).equals(AppState.ACTIVATION_PENDING)){
  	       intent = new Intent(this, VerifyActivationActivity.class);
 	    } else {
-	       intent = new Intent(this, MainActivity.class);
+		       intent = new Intent(this, MessageListActivity.class);
+		       //intent = new Intent(this, MainActivity.class);
 	    }
     	
 	    startActivity(intent);

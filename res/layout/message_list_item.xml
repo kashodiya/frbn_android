@@ -8,10 +8,11 @@
   <TextView android:id="@+id/message_title"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:maxLines="4"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:singleLine="true"/>
+            android:singleLine="false"/>
 
-  <TextView android:id="@+id/message_detail"
+  <TextView android:id="@+id/message_category_district"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"

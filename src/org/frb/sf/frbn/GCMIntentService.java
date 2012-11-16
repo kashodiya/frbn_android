@@ -17,18 +17,12 @@ package org.frb.sf.frbn;
 
 import static org.frb.sf.frbn.CommonUtilities.SENDER_ID;
 import static org.frb.sf.frbn.CommonUtilities.displayMessage;
-
-import org.frb.sf.frbn.data.Message;
-import org.frb.sf.frbn.data.MessageListActivity;
-import org.frb.sf.frbn.data.MessageManager;
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.BitmapFactory;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 

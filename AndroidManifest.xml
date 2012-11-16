@@ -91,7 +91,7 @@
         <service android:name="org.frb.sf.frbn.GCMIntentService" />
 
         <activity
-            android:name="org.frb.sf.frbn.data.MessageListActivity"
+            android:name=".MessageListActivity"
             android:label="Messages" >
         </activity>
         <activity
