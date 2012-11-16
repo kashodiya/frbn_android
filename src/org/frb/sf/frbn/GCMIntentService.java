@@ -23,6 +23,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Vibrator;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -84,6 +85,9 @@ public class GCMIntentService extends GCMBaseIntentService {
         displayMessage(context, message);
         // notifies user
         generateNotification(context, messageObj);
+
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(300);
     }
 
     @Override
